@@ -42,7 +42,7 @@ This is very relevant to the previous question.  Techniques that measure absolut
 
 $$
 \begin{align*}
-\frac{\#cells}{ml} \times ml = #cells
+ \frac{\# cells}{mL} \times mL = (\# cells)
 \end{align*}
 $$
 
