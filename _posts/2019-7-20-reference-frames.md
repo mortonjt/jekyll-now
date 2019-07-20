@@ -41,7 +41,9 @@ This implies that there are a few layers of ___absolute abundances___.  You have
 This is very relevant to the previous question.  Techniques that measure absolute abundances (i.e. qPCR, Flow cytometry), are in reality measuring the cell concentration within a sample, not the absolute abundances.  In some cases, we can use these measurements to obtain an estimate of the true absolute abundance in the environment.  In the oral time series study, the saliva flow rate can serve as a proxy for the total volume in the oral cavity. With this in mind we can obtain an estimate of cells since
 
 $$
+\begin{align*}
 \frac{\#cells}{ml} \times ml = #cells
+\end{align*}
 $$
 
 > We were confused why Propionibacterium acnes was chosen as a reference frame in the atopic dermatitis example - wouldn’t it make more sense to use a prevalent species with a low log ratio?
