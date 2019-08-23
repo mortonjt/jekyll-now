@@ -24,7 +24,7 @@ Here is an example command that you can run.
 
 Ordinal variables
 
-```python
+```bash
 songbird multinomial \
     --input-biom microbes.biom \
     --metadata-file sample-metadata.txt \
