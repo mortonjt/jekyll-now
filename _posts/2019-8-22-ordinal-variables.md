@@ -20,9 +20,7 @@ Fortunately, there are quite a few resources that can enable this sort of analys
 supports this sort of analysis - see [here](https://www.statsmodels.org/dev/contrasts.html#backward-difference-coding).
 
 Since [Songbird](https://github.com/biocore/songbird) relies on patsy for formulas, it too can do ordinal differential abundance analysis.
-Here is an example command that you can run.
-
-Ordinal variables
+Here is an example command that you can run in songbird using a biom table of microbe abundances `microbes.biom` with covariates saved under `sample-metadata.txt`
 
 ```bash
 songbird multinomial \
