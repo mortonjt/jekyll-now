@@ -108,6 +108,6 @@ If we compare the timings of conversion and argmax with the pandas version, we c
 60.2 ms ± 302 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
 
-Besides, if your table is sufficiently big, you may not even be able to load it - in those scenarios working directly with biom tables can be very useful.
+Besides, if your table is sufficiently big, you may not even be able to load it - in those scenarios working directly with biom tables can be very useful. Plus, having this functional approach tends to be less buggy, you can see there are no loops here, so there is no opportunity to have an off-by-one error.  After all who wants bugs right?!?
 
-We just showcase this with finding the most abundant microbes, but you can imagine this can be applied to a wide variety of settings, including log transforming abundances or data subsampling.  Looking forward to seeing more applications!
+We just showcased this with finding the most abundant microbes, but you can imagine this can be applied to a wide variety of settings, including log transforming abundances or data subsampling.  Looking forward to seeing more applications!
