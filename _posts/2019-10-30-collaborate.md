@@ -37,7 +37,7 @@ Or you may have extremely unbalanced classes, complicating classification.
 Or god forbid, you are trying run ttest / Pearson correlation to test for differences across proportions - in which case, you would be better off throwing away your data, and instead flip coins (but seriously, ttest / Pearson perform worse than random on proportions - there's over 40 years of mathematical research that shows this).
 
 Be mindful of data scientists, and avoid micromanaging them.  When they tell you that something is
-not possible, chances are they are up to something.  They aren't acting like a bunch of grammar Nazis,
+not possible, chances are they are up to something.  They aren't trying to act like a bunch of grammar Nazis,
 its worth hearing our what they have to say.
 
 ## Rule 3 : Don't tell your collaborator to Google it.
