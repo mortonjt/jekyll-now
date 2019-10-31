@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 7 tips on how to collaborate with your fellow data analyst.
+title: 7 tips on how to collaborate with your fellow data scientist.
 usemathjax: true
 comments: true
 categories: collaboration data analysis statistics computer-science data-science
 ---
 
-Do you have a data problem? Are you in need of a data analyst to
+Do you have a data problem? Are you in need of a data scientist to
 generate polished gorgeous figures, or just a informatician to run some pipelines for you?
 
 At this point in my career, I have worked with a number of collaborators across multiple
@@ -25,8 +25,7 @@ Don't fret about it!  Part of doing cutting edge research is about getting into 
 the pool.  But if you are asking someone to run an analysis for you, you should try to obtain
 a high level overview of what you are asking them to do. It is definitely ok to ask questions here.
 
-The reverse is also true -- the analyst should try to obtain some background behind the problem.
-You should also be prepared to carefully motivate the problem at hand as well.
+The reverse is also true -- your collaborator should try to obtain some background behind the problem. You should also be prepared to carefully motivate the problem at hand as well.
 Love goes both ways here.
 
 ## Rule 2: Be open minded.
@@ -53,9 +52,9 @@ VAEs / GLMs without any context. Would you?
 Rather than being a total asshole, try to follow up papers to provide motivation to your problem.
 Review papers are great for this.
 
-For the analysts reading this, if your collaborator tells you google something without any context -- GTFO!
+For the data scientists reading this, if your collaborator tells you google something without any context -- GTFO!
 
-## Rule 4 : If possible consult with analysts _before_ you run an experiment.
+## Rule 4 : If possible consult with statisticians _before_ you run an experiment.
 
 There is a rather large graveyard of botched experiments, some of them costing up to
 millions of dollars. You don't want your experiment to join that club.
@@ -69,7 +68,7 @@ before you even start collecting data.
 ## Rule 5 : Clean up your data before you pass it off.
 
 Try to clean up your data to the best of your abilities before you pass it off.
-This will save the analyst a lot of headache, which in turn will save you a lot of headache.
+This will save your collaborators a lot of headache, which in turn will save you a lot of headache.
 This means trying to avoid ambiguity in your files and having a well-defined file format.
 If you have a procedure that wouldn't make sense to your grandma without any context -
 you probably need to document it.  In my field, much of the experimental information
@@ -77,26 +76,21 @@ ends up being written on the side of a DNA extraction tube, so often times the s
 has weird esoteric numbers and letters on it.  Make sure to have this well spelled out
 either in a README and (preferrably) spreadsheet.
 
-If an analyst has had experience with collaborations, they probably have nailed down
-a procedure for file formats and pipelines.  The first few times maybe a learning curve,
+If your collaborator has had prior experience with these sorts of collaborations, they probably have nailed down a procedure for file formats and pipelines.  The first few times maybe a learning curve,
 but it is definitely worthwhile to try to get a feel for the workflows
 and understanding what file formats are required. And trust me, you don't want to
-end up in a situation where in order for the analyst to run the analysis, they
+end up in a situation where in order for your collaborator to run the analysis, they
 have to read your mind in order to figure out what experiment you ran.
 That just sucks.
 
-## Rule 6 : Don't expect analysts to clean up your mess.
+## Rule 6 : Don't expect your collaborators to clean up your mess.
 
-If you botched your experiment or passed over sloppy data, don't expert analysts
+If you botched your experiment or passed over sloppy data, don't expect your collaborators
 to whip up some mathemagic to solve your problems.  Own up to your problems -
-fix what you can to get the analysts the data that they need to make sensible conclusions.
+fix what you can to get your collaborators the data that they need to make sensible conclusions.
 
-Furthermore, you shouldn't expect the analyst to generate beautiful figures without any feedback.
-You should be prepared to spend time understanding the analyses and providing some domain specific
-context. If in the offchance the analyst was able to design the experiment, generate polished figures
-with a complete story - then there needs to be a serious discussion on
-co-first authorship / promotion. Don't be that asshole to minimizes your analysts contributions to
-live in the acknowledgements section.
+Furthermore, you shouldn't expect your collaborators to generate beautiful figures without any feedback. You should be prepared to spend time understanding the analyses and providing some domain specific context. If in the offchance your collaborator was able to design the experiment, generate polished figures with a complete story - then there needs to be a serious discussion on
+co-first authorship / promotion. Don't be that asshole to minimizes your collaborators contributions to live in the acknowledgements section. That's how you break friendships.
 
 ## Rule 7 : Figures, figures, figures
 
