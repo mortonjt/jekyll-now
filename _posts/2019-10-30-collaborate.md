@@ -45,7 +45,7 @@ its worth hearing our what they have to say.
 There are definitely scenarios where it is warranted to send a [letmegooglethat](http://letmegooglethat.com) link to someone.  Google search has been a huge enabler of searching new content.
 However, it is still not quite up to research standards yet, and can be very challenging to learn
 new content.  For instance, if someone asks you about the background behind your experimental design
-or or recommended papers on microbial exometabolites, telling them to google it is not only
+or asks for recommended papers on microbial exometabolites, telling them to google it is not only
 completely unreasonable.  It is fucking rude. You wouldn't want someone to tell you to google
 VAEs / GLMs without any context. Would you?
 
