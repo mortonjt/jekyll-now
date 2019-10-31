@@ -18,7 +18,8 @@ some of the tips below could help tighten your communication with them and enabl
 a productive working relationship.
 
 
-Rule 1: Try to learn about the details behind the analysis.
+## Rule 1: Try to learn about the details behind the analysis.
+
 You didn't take computer science / statistics / mathematics / physics as a major in college?
 Don't fret about it!  Part of doing cutting edge research is about getting into the deep end of
 the pool.  But if you are asking someone to run an analysis for you, you should try to obtain
@@ -28,7 +29,8 @@ The reverse is also true -- the analyst should try to obtain some background beh
 You should also be prepared to carefully motivate the problem at hand as well.
 Love goes both ways here.
 
-Rule 2: Be open minded.
+## Rule 2: Be open minded.
+
 You ideas may suck. This does happen.  A lot.
 There are many reasons why you cannot answer particular questions from your data.
 For instance,  your data may not be normally distributed, complicating statistical tests.
@@ -39,7 +41,8 @@ Be mindful of data scientists, and avoid micromanaging them.  When they tell you
 not possible, chances are they are up to something.  They aren't acting like a bunch of grammar Nazis,
 its worth hearing our what they have to say.
 
-Rule 3 : Don't tell your collaborator to Google it.
+## Rule 3 : Don't tell your collaborator to Google it.
+
 There are definitely scenarios where it is warranted to send a [letmegooglethat](http://letmegooglethat.com) link to someone.  Google search has been a huge enabler of searching new content.
 However, it is still not quite up to research standards yet, and can be very challenging to learn
 new content.  For instance, if someone asks you about the background behind your experimental design
@@ -52,7 +55,8 @@ Review papers are great for this.
 
 For the analysts reading this, if your collaborator tells you google something without any context -- GTOF!
 
-Rule 4 : If possible consult with analysts _before_ you run an experiment.
+## Rule 4 : If possible consult with analysts _before_ you run an experiment.
+
 There is a rather large graveyard of botched experiments, some of them costing up to
 millions of dollars. You don't want your experiment to join that club.
 
@@ -62,7 +66,8 @@ in your data, drastically reducing the questions that you can answer.
 Its really in your best interest to get a statistician / data scientist on board
 before you even start collecting data.
 
-Rule 5 : Clean up your data before you pass it off.
+## Rule 5 : Clean up your data before you pass it off.
+
 Try to clean up your data to the best of your abilities before you pass it off.
 This will save the analyst a lot of headache, which in turn will save you a lot of headache.
 This means trying to avoid ambiguity in your files and having a well-defined file format.
@@ -80,7 +85,8 @@ end up in a situation where in order for the analyst to run the analysis, they
 have to read your mind in order to figure out what experiment you ran.
 That just sucks.
 
-Rule 6 : Don't expect analysts to clean up your mess.
+## Rule 6 : Don't expect analysts to clean up your mess.
+
 If you botched your experiment or passed over sloppy data, don't expert analysts
 to whip up some mathemagic to solve your problems.  Own up to your problems -
 fix what you can to get the analysts the data that they need to make sensible conclusions.
@@ -92,7 +98,8 @@ with a complete story - then there needs to be a serious discussion on
 co-first authorship / promotion. Don't be that asshole to minimizes your analysts contributions to
 live in the acknowledgements section.
 
-Rule 7 : Figures, figures, figures
+## Rule 7 : Figures, figures, figures
+
 If you got this far, you should be excited - your work is already shaping up into a story
 and it is getting close to share.
 
