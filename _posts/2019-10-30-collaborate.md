@@ -53,7 +53,7 @@ VAEs / GLMs without any context. Would you?
 Rather than being a total asshole, try to follow up papers to provide motivation to your problem.
 Review papers are great for this.
 
-For the analysts reading this, if your collaborator tells you google something without any context -- GTOF!
+For the analysts reading this, if your collaborator tells you google something without any context -- GTFO!
 
 ## Rule 4 : If possible consult with analysts _before_ you run an experiment.
 
