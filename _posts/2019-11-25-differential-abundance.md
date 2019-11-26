@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to do differential abundance in 10 MINUTES!
+title: How to do differential abundance in 15 MINUTES!
 usemathjax: true
 comments: true
 categories: linear-regression data analysis statistics computer-science data-science
@@ -228,5 +228,5 @@ Third, the posterior samples from this model can serve as a drop-in replacement 
 to log ratios (i.e. balances) to test how different ratios of microbes change across conditions.  The statistical test criteria can be applied to each of the posterior samples,
 and the results can be counted up to determine statistical significance. Another blog post on this maybe necessary.
 
-Maybe you can read all of this in 10 minutes.  But chances are, it'll take some time to digest all of this material.
+Maybe you can read all of this in 15 minutes.  But chances are, it'll take some time to digest all of this material.
 Hopefully this serves as a guide towards how you can build your own statistical models from scratch, opening the doors for more statistical insights.
