@@ -74,11 +74,7 @@ $$
 $$
 
 $$
-p_{i} = x_i \cdot \beta
-$$
-
-$$
-\mu_{i} = n_i \times alr^{-1}(p_{i})
+\mu_{i} = n_i \times alr^{-1}(x_i \cdot \beta)
 $$
 
 $$
