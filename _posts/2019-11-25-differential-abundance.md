@@ -24,7 +24,7 @@ We'll break this up into 3 sections.
 # The negative binomial distribution
 
 This is one of the standard distributions used to count sequences.  This the distribution choosen for edgeR and DESeq2 and there are
-quite a few resources on it (see [here](https://en.wikipedia.org/wiki/Ladislaus_Bortkiewicz),
+quite a few resources on it (see [here](https://en.wikipedia.org/wiki/Negative_binomial_distribution),
 [here](https://divingintogeneticsandgenomics.rbind.io/post/negative-binomial-distribution-in-scrnaseq/) and
 [here](http://www.nxn.se/valent/2018/1/30/count-depth-variation-makes-poisson-scrna-seq-data-negative-binomial).
 If there is still widespread confusion on this topic, maybe I'll go into more detail behind this in a future blog post.
