@@ -219,7 +219,7 @@ plt.axhline(0, c='r')
 ![differentials plot](https://github.com/mortonjt/probable-bug-bytes/raw/master/images/microbe_fold_change_11252019.png "Differentials")
 
 And now we can see all of the log fold change estimates for each microbe along with confidence intervals.
-There are a few things to note here.
+All of the microbes are sorted along the x-axis - microbes on the far left side are more associated with the disease state and the microbes on the far-right are more associated with the control state.  The y-axis denotes the log-fold change of the microbe abundances between the disease and control conditions.  We added an extra `K` to the y-axis label since we can only infer the log-fold change up to a constant bias.  Since we cannot measure the microbial biomass shift, there is constant bias applied to all of the microbes.  There are a few more things to note here.
 
 First, this is a visualization of the microbe differentials in clr coordinates.  This means that zero here does not imply no change, but rather the *average*.
 We cannot infer from this which microbes have changed, we can only infer the ranking of the microbes (i.e. which microbes increased / decreased the most relative to the other microbes).
