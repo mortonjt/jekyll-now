@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to do differential abundance in 15 MINUTES!
+title: How to build your own differential abundance tool in 15 MINUTES!
 usemathjax: true
 comments: true
 categories: linear-regression data analysis statistics computer-science data-science
