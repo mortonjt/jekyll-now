@@ -32,11 +32,11 @@ For now, we will treat this as a means to model counts with extra technical vari
 
 Here, we will model each microbe as a negative binomial distribution given by
 
-$$$$
+$$
 y_{ij} \sim NB(\mu_{ij}, \phi_i)
-$$$$
+$$
 
-where $$y_ij$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
+where $$y_{ij}$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
 
 While understanding $$\phi$$ is important, the actual gold in the model is contained in $$\mu_{ij}$$.  If you are trying to infer differences between two treatment groups, you likely
 will want to do something that can take the difference between $$\mu_{ij}$$ and $$\mu_{kj}$$ for samples $$i$$ and $$k$$.  To do this, we will need to carefully break it down, leading us to the next section on compositionality
@@ -67,13 +67,13 @@ Taking together everything that we discussed, the generative model can be built 
 
 $$
 \beta_j \sim N(0, 5)
-
+	$$
 1/\phi_j \sim Cauchy(0, 5)
-
+$$
 p_{i} = x_i \cdot \beta
-
+$$
 \mu_{i} = n_i \times alr^{-1}(p_{i})
-
+$$
 y_{ij} \sim NB(\mu_{ij}, \phi_j)
 $$
 
