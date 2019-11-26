@@ -67,12 +67,16 @@ Taking together everything that we discussed, the generative model can be built 
 
 $$
 \beta_j \sim N(0, 5)
-	$$
-1/\phi_j \sim Cauchy(0, 5)
+$$
+$$
+\phi_j \sim Cauchy(0, 5)
+$$
 $$
 p_{i} = x_i \cdot \beta
 $$
+$$
 \mu_{i} = n_i \times alr^{-1}(p_{i})
+$$
 $$
 y_{ij} \sim NB(\mu_{ij}, \phi_j)
 $$
