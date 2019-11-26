@@ -179,7 +179,7 @@ res =  fit.extract(permuted=True)
 This will give you draws from the posterior distribution, so we will want to compute means and variances to directly interpret our estimate parameters.
 I'll provide some code used for a recent case study below.  We can pull out the log fold changes from $$\beta$$.  Here, $$\beta$$ is in alr coordinates, meaning that
 we chose the first microbe to be the reference frame in this example.  To help visualize these results, we can shift the reference frame to the average, hence
-converting to clr coordinates. There is more discussion about this in our [reference frames paper](https://www.nature.com/articles/s41467-019-10656-5)), but
+converting to clr coordinates. There is more discussion about this in our [reference frames paper](https://www.nature.com/articles/s41467-019-10656-5), but
 I can have another blog post further clarifying this if necessary.  For now, we can build an `alr2clr` function and visualize these results.
 
 ```python
