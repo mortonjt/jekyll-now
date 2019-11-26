@@ -23,7 +23,7 @@ We'll break this up into 3 sections.
 
 # The negative binomial distribution
 
-This is one of the standard distributions used to count sequences.  This the distribution choosen for edgeR and DESeq2 and there are
+This is one of the standard distributions used to count sequences.  This is the distribution choosen for edgeR and DESeq2 and there are
 quite a few resources on it (see [here](https://en.wikipedia.org/wiki/Negative_binomial_distribution),
 [here](https://divingintogeneticsandgenomics.rbind.io/post/negative-binomial-distribution-in-scrnaseq/) and
 [here](http://www.nxn.se/valent/2018/1/30/count-depth-variation-makes-poisson-scrna-seq-data-negative-binomial).
@@ -36,7 +36,7 @@ $$
 y_{ij} \sim NB(\mu_{ij}, \phi_i)
 $$
 
-where $$y_{ij}$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
+where $$y_{ij}$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$\mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
 
 While understanding $$\phi$$ is important, most of the gold in the model is contained in $$\mu_{ij}$$.  If you are trying to infer differences between two treatment groups, you likely
 will want to do something that can take the difference between $$\mu_{ij}$$ and $$\mu_{kj}$$ for samples $$i$$ and $$k$$.  To do this, we will need to carefully break it down, leading us to the next section on compositionality
@@ -59,7 +59,7 @@ alr(p_{i}) = x_i \cdot \beta
 $$
 
 Where $$x_i$$ specifies the experimental conditions you wish to investigate and $$\beta$$ are the *log fold change* values of microbial abundances across the experimental conditions.
-Here, $$\beta$$ is a matrix of dimension, `(number of covariates) x (number of microbes)`. You can think of this as the *log fold change* of all of the microbes for each covariate.
+Here, $$\beta$$ is a matrix of dimension `(number of covariates) x (number of microbes)`. You can think of this as the *log fold change* of all of the microbes for each covariate.
 These are the values that you want to estimate. We put quotes around the log fold change since you have to be careful about how to interpret it (more on this later).
 See our paper [here](https://www.nature.com/articles/s41467-019-10656-5).
 
