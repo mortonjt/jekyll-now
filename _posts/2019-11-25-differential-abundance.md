@@ -61,7 +61,7 @@ $$
 Where $$x_i$$ specifies the experimental conditions you wish to investigate and $$\beta$$ are the *log fold change* values of microbial abundances across the experimental conditions.
 Here, $$\beta$$ is a matrix of dimension, `(number of covariates) x (number of microbes)`. You can think of this as the *log fold change* of all of the microbes for each covariate.
 These are the values that you want to estimate. We put quotes around the log fold change since you have to be careful about how to interpret it (more on this later).
-See our paper [here](https://www.nature.com/articles/s41467-019-10656-5)).
+See our paper [here](https://www.nature.com/articles/s41467-019-10656-5).
 
 Taking together everything that we discussed, the generative model can be built as follows
 
