@@ -32,24 +32,24 @@ For now, we will treat this as a means to model counts with extra technical vari
 
 Here, we will model each microbe as a negative binomial distribution given by
 
-$$
+$$$$
 y_{ij} \sim NB(\mu_{ij}, \phi_i)
-$$
+$$$$
 
-where $y_ij$ denotes the counts for microbe $j$ and sample $j$ that we are trying to model. $mu$ denotes the expected abundance for microbe $j$ and sample $j$ and $\phi_j$ denotes the dispersion parameter for microbe $j$. This dispersion parameter enables us to allow learn the variance of microbe $j$, since $V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
+where $$y_ij$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
 
-While understanding $\phi$ is important, the actual gold in the model is contained in $\mu_{ij}$.  If you are trying to infer differences between two treatment groups, you likely
-will want to do something that can take the difference between $\mu_{ij}$ and $\mu_{kj}$ for samples $i$ and $k$.  To do this, we will need to carefully break it down, leading us to the next section on compositionality
+While understanding $$\phi$$ is important, the actual gold in the model is contained in $$\mu_{ij}$$.  If you are trying to infer differences between two treatment groups, you likely
+will want to do something that can take the difference between $$\mu_{ij}$$ and $$\mu_{kj}$$ for samples $$i$$ and $$k$$.  To do this, we will need to carefully break it down, leading us to the next section on compositionality
 
 # Compositionality
 
-The consensus that has been made in the field is that sequencing measurements are relative, not absolute (see paper [here](https://www.ncbi.nlm.nih.gov/pubmed/29143816) and our paper [here](https://www.nature.com/articles/s41467-019-10656-5)). This means that the total microbial counts do not reflect upon the true microbial counts in the environment, and that the only information obtained from sequencing are microbial proportions.  This means that there are two things to consider, namely the sequencing depth and the proportions.  Since the sequencing depth does not correlate with the microbial biomass, we will treat it as a nuissance variable, leaving us to only infer the microbial proportions.  In other words, we will break up $\mu_{ij}$ into two parts as
+The consensus that has been made in the field is that sequencing measurements are relative, not absolute (see paper [here](https://www.ncbi.nlm.nih.gov/pubmed/29143816) and our paper [here](https://www.nature.com/articles/s41467-019-10656-5)). This means that the total microbial counts do not reflect upon the true microbial counts in the environment, and that the only information obtained from sequencing are microbial proportions.  This means that there are two things to consider, namely the sequencing depth and the proportions.  Since the sequencing depth does not correlate with the microbial biomass, we will treat it as a nuissance variable, leaving us to only infer the microbial proportions.  In other words, we will break up $$\mu_{ij}$$ into two parts as
 
 $$
 \mu_{ij} = n_i \times p_{ij}
 $$
 
-where $n_i$ is the observed sequencing depth for sample $i$ and $p_{ij}$ are the proportions of microbe $i$ in sample $j$ that we would like to model.
+where $$n_i$$ is the observed sequencing depth for sample $$i$$ and $$p_{ij}$$ are the proportions of microbe $$i$$ in sample $$j$$ that we would like to model.
 For the compositional skeptics, we can model the microbial abundances as independent negative binomial distributions, due to the connection between the Poisson and the Multinomial distribution (see [here](https://arxiv.org/abs/1311.6139)).  So as long as we can control for the observed sequencing depth, we can model the proportions.
 
 The next question is, how do we model the proportions?  A sure fire way to do this is to use the alr transform (see this wikipedia page [here](https://en.wikipedia.org/wiki/Compositional_data#Linear_transformations)).  Specifically this will give us
@@ -58,21 +58,26 @@ $$
 alr(p_{i}) = x_i \cdot \beta
 $$
 
-Where $x_i$ specifies the experimental conditions you wish to investigate and $\beta_j$ are the *log fold change* values of microbial abundances across the experimental conditions.
-These are the values that you want to estimate. We put quotes around the log fold change since you have to be careful about how to interpret it.
+Where $$x_i$$ specifies the experimental conditions you wish to investigate and $$\beta$$ are the *log fold change* values of microbial abundances across the experimental conditions.
+Here, $$\beta$$ is a matrix of dimension, `(number of covariates) x (number of microbes)`. You can think of this as the *log fold change* of all of the microbes for each covariate.
+These are the values that you want to estimate. We put quotes around the log fold change since you have to be careful about how to interpret it (more on this later).
 See our paper [here](https://www.nature.com/articles/s41467-019-10656-5)).
 
 Taking together everything that we discussed, the generative model can be built as follows
 
 $$
 \beta_j \sim N(0, 5)
+
 1/\phi_j \sim Cauchy(0, 5)
+
 p_{i} = x_i \cdot \beta
+
 \mu_{i} = n_i \times alr^{-1}(p_{i})
+
 y_{ij} \sim NB(\mu_{ij}, \phi_j)
 $$
 
-We specified relatively uninformed priors for $\beta_j$ and $\phi_j$ - from previous observations most microbes fluctuate within 5 orders of magnitude.
+We specified relatively uninformed priors for $$\beta_j$$ and $$\phi_j$$ - from previous observations most microbes fluctuate within 5 orders of magnitude.
 
 # Piecing it altogether in Stan
 
@@ -168,7 +173,7 @@ res =  fit.extract(permuted=True)
 ```
 
 This will give you draws from the posterior distribution, so we will want to compute means and variances to directly interpret our estimate parameters.
-I'll provide some code used for a recent case study below.  We can pull out the log fold changes from $\beta$.  Here, $\beta$ is in alr coordinates, meaning that
+I'll provide some code used for a recent case study below.  We can pull out the log fold changes from $$\beta$$.  Here, $$\beta$$ is in alr coordinates, meaning that
 we chose the first microbe to be the reference frame in this example.  To help visualize these results, we can shift the reference frame to the average, hence
 converting to clr coordinates. There is more discussion about this in our [reference frames paper](https://www.nature.com/articles/s41467-019-10656-5)), but
 I can have another blog post further clarifying this if necessary.  For now, we can build an `alr2clr` function and visualize these results.
@@ -180,10 +185,10 @@ def alr2clr(x):
     x_clr = x_clr - x_clr.mean(axis=1).reshape(-1, 1)
     return x_clr
 ```
-In the original study, there were 6 covariates.  Here, we will only focus on the 4th covariate, which gives us information about the microbial fold change across disease type.
+In the original study, there were 6 covariates.  Here, we will only focus on the 1st covariate, which gives us information about the microbial fold change across disease type.
 
 ```python
-beta = alr2clr(la['beta'][:, 3, :])
+beta = alr2clr(res['beta'][:, 0, :])
 beta_df = pd.DataFrame(beta, columns=table.ids('observation'))
 ```
 Here, the dimensions of beta are `(number of microbes ) x (posterior samples)`.  We can summarize these samples in terms of means and standard deviations as follows
@@ -201,7 +206,6 @@ We can visualize the estimated log fold change for each microbe (i.e. the microb
 plt.figure(figsize=(10, 5))
 i = np.arange(beta_df.shape[1])
 plt.errorbar(i, np.array(mean.values), yerr=np.ravel(std.values))
-#plt.ylabel('Log fold change', fontsize=14)
 plt.ylabel(r'log(Control / Disease)+K', fontsize=14, rotation=0, labelpad=90)
 plt.xticks([])
 plt.xlabel('Microbes', fontsize=14)
