@@ -70,7 +70,7 @@ $$
 $$
 
 $$
-\phi_j \sim Cauchy(0, 5)
+\frac{1}{\phi_j} \sim Cauchy(0, 5)
 $$
 
 $$
