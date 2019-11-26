@@ -190,9 +190,10 @@ def alr2clr(x):
     return x_clr
 ```
 In the original study, there were 6 covariates.  Here, we will only focus on the 1st covariate, which gives us information about the microbial fold change across disease type.
+You may notice that there is an intercept - that is a discussion for another blog post.
 
 ```python
-beta = alr2clr(res['beta'][:, 0, :])
+beta = alr2clr(res['beta'][:, 1, :])
 beta_df = pd.DataFrame(beta, columns=table.ids('observation'))
 ```
 Here, the dimensions of beta are `(number of microbes ) x (posterior samples)`.  We can summarize these samples in terms of means and standard deviations as follows
