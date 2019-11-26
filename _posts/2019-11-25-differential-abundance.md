@@ -38,7 +38,7 @@ $$
 
 where $$y_{ij}$$ denotes the counts for microbe $$j$$ and sample $$j$$ that we are trying to model. $$mu$$ denotes the expected abundance for microbe $$j$$ and sample $$j$$ and $$\phi_j$$ denotes the dispersion parameter for microbe $$j$$. This dispersion parameter enables us to allow learn the variance of microbe $$j$$, since $$V(y_{ij}) = \mu_{ij} + \frac{1}{\phi_j}\mu_{ij}$$.  This will ultimately allow us to build a more robust / flexible model, which is really important given how high variance many of these sequencing datasets are (see paper [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531)).
 
-While understanding $$\phi$$ is important, the actual gold in the model is contained in $$\mu_{ij}$$.  If you are trying to infer differences between two treatment groups, you likely
+While understanding $$\phi$$ is important, most of the gold in the model is contained in $$\mu_{ij}$$.  If you are trying to infer differences between two treatment groups, you likely
 will want to do something that can take the difference between $$\mu_{ij}$$ and $$\mu_{kj}$$ for samples $$i$$ and $$k$$.  To do this, we will need to carefully break it down, leading us to the next section on compositionality
 
 # Compositionality
@@ -50,7 +50,7 @@ $$
 $$
 
 where $$n_i$$ is the observed sequencing depth for sample $$i$$ and $$p_{ij}$$ are the proportions of microbe $$i$$ in sample $$j$$ that we would like to model.
-For the compositional skeptics, we can model the microbial abundances as independent negative binomial distributions, due to the connection between the Poisson and the Multinomial distribution (see [here](https://arxiv.org/abs/1311.6139)).  So as long as we can control for the observed sequencing depth, we can model the proportions.
+For the compositional skeptics, we can model the microbial abundances as independent negative binomial distributions, due to the connection between the Poisson and the Multinomial distribution (see [here](https://arxiv.org/abs/1311.6139)).  So as long as we can control for the observed sequencing depth, we can model the proportions.  This is also the same strategy pursued in [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html).
 
 The next question is, how do we model the proportions?  A sure fire way to do this is to use the alr transform (see this wikipedia page [here](https://en.wikipedia.org/wiki/Compositional_data#Linear_transformations)).  Specifically this will give us
 
