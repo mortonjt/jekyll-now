@@ -37,7 +37,7 @@ Since $$\beta_1=\frac{\Delta y}{ \Delta x}$$ and $$\Delta x=1$$, that means that
 
 The take away here is that when only categorical variables are used as inputs, all of the coefficients estimate group averages and the differences between the group averages. This technique is essentially ANOVA - ANOVA is just linear regression with categorical variables.
 
-Tying everything together, when applying this in a GLM context with Negative Binomial regression, all of these quantities are in log units.  As acknowledged in previous works, the $\beta_1$ coefficients correspond to some log-fold change quantity, with a [bias as I mentioned in my paper](https://www.nature.com/articles/s41467-019-10656-5).  But one thing that I have not seen acknowledged elsewhere is that the intercept of this regression is the averaged log abundance of the control population. Specifically, if you exponentiate and normalize $\beta_0$ to sum to 1, that quantity is expected to correspond to the average microbial population abundances in the control group.
+Tying everything together, when applying this in a GLM context with Negative Binomial regression, all of these quantities are in log units.  As acknowledged in previous works, the $$\beta_1$$ coefficients correspond to some log-fold change quantity, with a [bias as I mentioned in my paper](https://www.nature.com/articles/s41467-019-10656-5).  But one thing that I have not seen acknowledged elsewhere is that the intercept of this regression is the averaged log abundance of the control population. Specifically, if you exponentiate and normalize $$\beta_0$$ to sum to 1, that quantity is expected to correspond to the average microbial population abundances in the control group.
 
 
 
