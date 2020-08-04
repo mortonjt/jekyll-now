@@ -6,7 +6,7 @@ comments: true
 categories: linear-regression data analysis statistics computer-science data-science
 ---
 
-If you have run standard differnetial abundance tools such as DESeq2, Aldex2 or even my tool Songbird, you may have realized that there is an intercept reported in the output. You may also be wondering how can you interpret this quantity? This may be confusing especially if you are only looking at categorical variables, such as the difference between treatment and control groups.
+If you have run standard differential abundance tools such as DESeq2, Aldex2 or even my tool Songbird, you may have realized that there is an intercept reported in the output. You may also be wondering how can you interpret this quantity? This may be confusing especially if you are only looking at categorical variables, such as the difference between treatment and control groups.
 
 To provide some intuition behind this consider the following - say that you have two groups, control and treatment. As discussed in one of my [previous blogpots](http://mortonjt.blogspot.com/2018/05/encoding-design-matrices-in-patsy.html) you can encode these categorical variables as numerical values that you can feed in directly into your linear regression.
 
