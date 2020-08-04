@@ -15,10 +15,10 @@ $$
 p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
-I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $q(z|x)$ play a role in this? Why does $p(x)$ play a role here? And exactly how is this inequality derived?
+I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does q(z|x) play a role in this? Why does p(x) play a role here? And exactly how is this inequality derived?
 
 The most simplified attempt that I've seen at explaining variational inference is David Blei's review [here](https://amstat.tandfonline.com/doi/pdf/10.1080/01621459.2017.1285773?needAccess=true).  Note that there is nothing wrong in these derivations, but I argue that an even simpler derivation can be obtained directly from Baye's Theorem.
-
+n
 # Deriving that ELBO from Bayes Theorem.
 
 Bayes Theorem is given as follows
