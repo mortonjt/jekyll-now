@@ -65,8 +65,8 @@ $$
 
 This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly maximize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 $$
-\mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg] = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg]s
-= \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
+\mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg] &= \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg]
+&= \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
 In short, you don't need to understand the joint distribution to understand what variational inference is actually optimizing. The only thing needed here is to understand Bayes Theorem, and the appropriate objective functions can be directly obtained form there.
