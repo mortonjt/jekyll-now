@@ -60,12 +60,12 @@ This is the shorthand for what these expectations are actually referring to.
 If we expand the KL divergence term with respect to the likelihood and the prior, we will get the following
 b
 $$
-- KL(q(z|x) || p(z|x)) = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg + \log K] \geq \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg
+- KL(q(z|x) || p(z|x)) = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)} + \log K\bigg] \geq \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg]
 $$
 
 This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly maximize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 $$
-\mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)}\bigg + \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg
+\mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg] = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg]s
 = \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
