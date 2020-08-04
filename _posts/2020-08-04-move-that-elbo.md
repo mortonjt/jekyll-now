@@ -15,7 +15,7 @@ $$
 p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
-I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $q(z\|x)$ play a role in this? Why does $p(x)$ play a role here? And exactly how is this inequality derived?
+I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $$q(z\|x)$$ play a role in this? Why does $$p(x)$$ play a role here? And exactly how is this inequality derived?
 
 The most simplified attempt that I've seen at explaining variational inference is David Blei's review [here](https://amstat.tandfonline.com/doi/pdf/10.1080/01621459.2017.1285773?needAccess=true).  Note that there is nothing wrong in these derivations, but I argue that an even simpler derivation can be obtained directly from Baye's Theorem.
 n
@@ -36,15 +36,15 @@ In a perfect world, we would be able to just apply Bayesian updates seamlessly, 
 
 OK, then where do problems arise?
 
-The problem arises when you try to obtain a closed form solution for the distribution $p(z|x)$, but solving those integrals just becomes too hard.
+The problem arises when you try to obtain a closed form solution for the distribution $$p(z|x)$$, but solving those integrals just becomes too hard.
 How hard is too hard?  It is actually [NP-hard](https://www.sciencedirect.com/science/article/abs/pii/000437029390036B) - trying to solve any arbitrary integral can lead to a combinatorial explosion of possibilities.
 
 OK, so what do we do?
 
 One possibility is to try to simplify the problem, and make it easy enough for us to solve. We assume a much simpler form of the posterior distribution and try to solve for that instead.
-In other words, we introduce a variational distribution $q(z|x)$ and try to match it as best as we can against the posterior distribution. As Blei notes in his review, we want to try to minimize the following objective
+In other words, we introduce a variational distribution $$q(z|x)$$ and try to match it as best as we can against the posterior distribution. As Blei notes in his review, we want to try to minimize the following objective
 
- $$
+$$
 argmin_q KL(q(z|x) || p(z|x))
 $$
 
