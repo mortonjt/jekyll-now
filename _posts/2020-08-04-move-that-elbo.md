@@ -12,7 +12,7 @@ Chances are you stumbled on variational inference through [VAEs](https://arxiv.o
 The derivations in these works are typically hinged on the task of estimating a joint distribution of observed variables.  Below is an example from the VAE papernnn
 
 $$
-p(x) \geq E_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
+p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
 I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $$q(z|x)$$ play a role in this? Why does $$p(x)$$ play a role here? And exactly how is this inequality derived?
@@ -65,8 +65,8 @@ $$
 
 This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly maximize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 $$
-E_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg &= \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)}\bigg + \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg
-&f= E_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
+\mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)}\bigg + \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg
+= \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
 In short, you don't need to understand the joint distribution to understand what variational inference is actually optimizing. The only thing needed here is to understand Bayes Theorem, and the appropriate objective functions can be directly obtained form there.
