@@ -15,7 +15,7 @@ $$
 p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
-I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $$q(z\|x)$$ play a role in this? Why does $$p(x)$$ play a role here? And exactly how is this inequality derived?
+I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does $$q(z|x)$$ play a role in this? Why does $$p(x)$$ play a role here? And exactly how is this inequality derived?
 
 The most simplified attempt that I've seen at explaining variational inference is David Blei's review [here](https://amstat.tandfonline.com/doi/pdf/10.1080/01621459.2017.1285773?needAccess=true).  Note that there is nothing wrong in these derivations, but I argue that an even simpler derivation can be obtained directly from Baye's Theorem.
 n
@@ -48,22 +48,22 @@ $$
 argmin_q KL(q(z|x) || p(z|x))
 $$
 
-where the [KL divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) measures the difference between the posterior distribution $$p(z|x)$$ and the approximate distribution $$q(z|x)$$.  In the variational inference literature, it is more commom to maximize negative KL divergence, which is equivalent to minimizing the KL divergence.
+where the [KL divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) measures the difference between the posterior distribution and the approximate distribution.  In the variational inference literature, it is more commom to maximize negative KL divergence, which is equivalent to minimizing the KL divergence.
 
 If you write out the form of the KL divergence, and squint at it, you may realize that it is actually an expectation with respect to $$q(z|x)$$.
 
 $$
-- KL(q(z|x) || p(z|x)) = \int{q(z|x) \log \frac{p(z|x)}{q(z|x)} dx = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z|x)}{q(z|x)}\bigg]
+KL(q(z|x) || p(z|x)) = \int{q(z|x) \log \frac{p(z|x)}{q(z|x)} dx = - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z|x)}{q(z|x)}\bigg]
 $$
 This is the shorthand for what these expectations are actually referring to.
 
 If we expand the KL divergence term with respect to the likelihood and the prior, we will get the following
 b
 $$
-- KL(q(z|x) || p(z|x)) = \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)} + \log K\bigg] \geq \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg]
+KL(q(z|x) || p(z|x)) = - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)} - \log K\bigg] \leq - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg]
 $$
 
-This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly maximize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
+This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly minimize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 $$
 \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg] &= \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z)}{q(z|x)}\bigg]
 &= \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
