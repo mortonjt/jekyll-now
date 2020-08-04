@@ -53,21 +53,21 @@ where the [KL divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler
 If you write out the form of the KL divergence, and squint at it, you may realize that it is actually an expectation with respect to q.
 
 $$
-KL(q(z|x) || p(z|x)) = \int{q(z|x) \log \frac{p(z|x)}{q(z|x)} dx = - \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(z|x)}{q(z|x)} \bigg]
+KL(q(z|x) || p(z|x)) = - \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(z|x)}{q(z|x)} \bigg]
 $$
 
 This is the shorthand for what these expectations are actually referring to.
 
 If we expand the KL divergence term with respect to the likelihood and the prior, we will get the following
-b
+
 $$
 KL(q(z|x) || p(z|x)) = - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)} + \log K\bigg] \leq - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg]
 $$
 
 This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly minimize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
+
 $$
 \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)p(z)}{q(z|x)} \bigg] = \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[ \log \frac{p(z)}{q(z|x)} \bigg]
-
 
 = \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
