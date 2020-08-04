@@ -50,7 +50,7 @@ $$
 
 where the [KL divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) measures the difference between the posterior distribution and the approximate distribution.  In the variational inference literature, it is more commom to maximize negative KL divergence, which is equivalent to minimizing the KL divergence.
 
-If you write out the form of the KL divergence, and squint at it, you may realize that it is actually an expectation with respect to $$q(z|x)$$.
+If you write out the form of the KL divergence, and squint at it, you may realize that it is actually an expectation with respect to q.
 
 $$
 KL(q(z|x) || p(z|x)) = \int{q(z|x) \log \frac{p(z|x)}{q(z|x)} dx = - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(z|x)}{q(z|x)}\bigg]
