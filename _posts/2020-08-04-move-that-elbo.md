@@ -67,7 +67,7 @@ $$
 This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly optimize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 
 $$
-\mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)p(z)}{q(z|x)} \bigg] = \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[ \log \frac{p(z)}{q(z|x)} \bigg]
+\mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)p(z)}{q(z|x)} \bigg] = \mathbb{E}_{q(z|x)} \bigg[ \log p(x|z) \bigg]+ \mathbb{E}_{q(z|x)}\bigg[ \log \frac{p(z)}{q(z|x)} \bigg]
 $$
 
 $$
