@@ -36,8 +36,7 @@ In a perfect world, we would be able to just apply Bayesian updates seamlessly, 
 
 OK, then where do problems arise?
 
-The problem arises when you try to obtain a closed form solution for the distribution $$p(z|x)$$, but solving those integrals just becomes too hard.
-How hard is too hard?  It is actually [NP-hard](https://www.sciencedirect.com/science/article/abs/pii/000437029390036B) - trying to solve any arbitrary integral can lead to a combinatorial explosion of possibilities.
+The problem arises for pairs of distributions that aren't conjugate (i.e. Bernoulli + Normal, or Dirichilet + Dirichilet) when solve for the posterior distribution, the resulting integral is just too hard to calculate analytically. How hard is too hard?  It is actually [NP-hard](https://www.sciencedirect.com/science/article/abs/pii/000437029390036B) - trying to solve any arbitrary integral can lead to a combinatorial explosion of possibilities.
 
 OK, so what do we do?
 
