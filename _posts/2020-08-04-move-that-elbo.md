@@ -6,7 +6,7 @@ comments: true
 categories: elbo bayesian-inference variational-inference statistics computer-science data-science
 ---
 
-Here I'm going to try to another perspective on variational inference, in particular some intuition behind the mysteriour ELBO.
+Here I'm going to try to another perspective on variational inference, in particular some intuition behind the mysterious ELBO.
 Chances are you stumbled on variational inference through [VAEs](https://arxiv.org/pdf/1312.6114.pdf) introduced by Max Welling, or David Blei's work with [LDA](http://jmlr.org/papers/volume3/blei03a/blei03a.pdf) and other applications.
 
 The derivations in these works are typically hinged on the task of estimating a joint distribution of observed variables.  Below is an example from the VAE paper
@@ -15,10 +15,10 @@ $$
 p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
-I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does q play a role in this? Why does p(x) play a role here? And exactly how is this inequality derived?
+I've removed the extra notation to simplify things.  But still, if this is the first time you've seen this, you may have a number of questions.  There are many funky things going on with the notation.  First off, what is going on with the expectation and how does _q_ play a role in this? Why does _p(x)_ play a role here? And exactly how is this inequality derived?
 
 The most simplified attempt that I've seen at explaining variational inference is David Blei's review [here](https://amstat.tandfonline.com/doi/pdf/10.1080/01621459.2017.1285773?needAccess=true).  Note that there is nothing wrong in these derivations, but I argue that an even simpler derivation can be obtained directly from Baye's Theorem.
-n
+
 # Deriving that ELBO from Bayes Theorem.
 
 Bayes Theorem is given as follows
@@ -42,7 +42,7 @@ How hard is too hard?  It is actually [NP-hard](https://www.sciencedirect.com/sc
 OK, so what do we do?
 
 One possibility is to try to simplify the problem, and make it easy enough for us to solve. We assume a much simpler form of the posterior distribution and try to solve for that instead.
-In other words, we introduce a variational distribution $$q(z|x)$$ and try to match it as best as we can against the posterior distribution. As Blei notes in his review, we want to try to minimize the following objective
+In other words, we introduce a variational distribution $$q(z|x)$$ and try to match it as best as we can against the posterior distribution. As Blei et al notes in their review, we want to try to minimize the following objective
 
 $$
 argmin_q \; KL(q(z|x) || p(z|x))
@@ -64,11 +64,13 @@ $$
 KL(q(z|x) || p(z|x)) = - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)} + \log K\bigg] \leq - \mathbb{E}_{q(z|x)}\bigg[\log \frac{p(x|z)p(z)}{q(z|x)}\bigg]
 $$
 
-This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly minimize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
+This inequality is true because the expectation of K will be stricly greater than zero. That quantity we just derived is the evidence lower bound (ELBO), which we can directly optimize to find the approximate posterior distribution.  If we factor this further, we can obtain the results as presented in Welling et al
 
 $$
 \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)p(z)}{q(z|x)} \bigg] = \mathbb{E}_{q(z|x)} \bigg[ \log \frac{p(x|z)}{q(z|x)} \bigg]+ \mathbb{E}_{q(z|x)}\bigg[ \log \frac{p(z)}{q(z|x)} \bigg]
+$$
 
+$$
 = \mathbb{E}_{q(z|x)}[\log p(x|z)] - KL(q(x|z)||p(z))
 $$
 
