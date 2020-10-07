@@ -226,7 +226,7 @@ First, this is a visualization of the microbe differentials in clr coordinates. 
 We cannot infer from this which microbes have changed, we can only infer the ranking of the microbes (i.e. which microbes increased / decreased the most relative to the other microbes).
 
 Second, we don't have proper model diagnostics here.  So we don't know how well this model generalizes across different studies.  Posterior predictive checks can
-help with evaluate how well the model can predict unobserved samples as a form of cross-validation.  See this stan writeup [here](microbe_fold_change_11252019.png) for more details.
+help with evaluate how well the model can predict unobserved samples as a form of cross-validation.  See this stan writeup [here](https://jrnold.github.io/bayesian_notes/model-checking.html) for more details.
 The stan code will need to be augmented to enable this.
 
 Third, the posterior samples from this model can serve as a drop-in replacement for commonly used significance tests such as t-tests. For instance, one can convert these differentials
